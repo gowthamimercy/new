@@ -1,0 +1,12 @@
+package com.inova;
+
+import org.openqa.selenium.WebDriver;
+
+public class Baseclass {
+	WebDriver driver = null;
+	public void openbrowser()
+	{
+		System.setProperty("webdriver.chrome.driver","")
+	}
+
+}

@@ -1,0 +1,58 @@
+
+import java.io.File;
+import java.io.IOException;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Gmail {
+
+	public static void main(String[] args) throws IOException, InterruptedException {
+		
+		
+		
+	System.setProperty("webdriver.chrome.driver","C:\\Users\\HP\\eclipse-workspace\\gowthami\\seleniumtesting\\driver files\\chromedriver.exe");
+	WebDriver driver = new ChromeDriver();
+
+		String url="https://mail.google.com/mail/u/0/#inbox";
+		driver.get(url);
+		driver.manage().timeouts().implicitlyWait(100,TimeUnit.SECONDS);
+		driver.findElement(By.id("identifierId")).sendKeys("thadi.gowthami@gmail.com");
+		driver.findElement(By.id("identifierNext")).click();
+		driver.findElement(By.name("password")).sendKeys("jesus7+savesme");
+		driver.findElement(By.id("passwordNext")).click();
+	WebElement	inbox=driver.findElement(By.xpath("//*[@id=\":lf\"]/div/div[2]"));
+			
+			List<WebElement> link = inbox.findElements(By.tagName("a"));
+			int links_count=link.size();
+			System.out.println(links_count);
+			for(int i=0;i<links_count;i++)
+			{
+				
+				String linkname=link.get(i).getText();
+				System.out.println(linkname);
+				//link.get(i).click();
+				//System.out.println(driver.getCurrentUrl());
+				//driver.navigate().back();
+				//Thread.sleep(20000);
+				//link:driver.findElements(By.tagName("a"));
+				
+				
+			}
+				
+			
+	
+		File gmail_screenshot=((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+FileUtils.copyFile(gmail_screenshot,new File("./screenshot/gmail.png"));
+
+		
+	}
+
+}

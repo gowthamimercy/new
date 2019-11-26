@@ -1,0 +1,19 @@
+package com.gmail;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+public class alltesting {
+
+	public static void main(String[] args) {
+		System.setProperty("webdriver.gecko.driver","./gecko.driver.exe");
+		
+		WebDriver driver = null;
+		driver = new FirefoxDriver();
+		String url="https://mail.google.com/mail/u/0/#inbox";
+		driver.get(url);
+		
+		
+	}
+
+}

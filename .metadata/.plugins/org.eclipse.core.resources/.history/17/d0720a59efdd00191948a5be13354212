@@ -1,0 +1,35 @@
+package com.gmail;
+
+import java.util.concurrent.TimeUnit;
+
+import javax.imageio.stream.ImageOutputStream;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+public class alltesting {
+
+	public static void main(String[] args) {
+		System.setProperty("webdriver.gecko.driver","C:\\Users\\HP\\eclipse-workspace\\gowthami\\selenium\\driver files\\geckodriver.exe");
+		
+		WebDriver driver = null;
+		driver = new FirefoxDriver();
+		String url="https://mail.google.com/mail/u/0/#inbox";
+		driver.get(url);
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(50,TimeUnit.SECONDS);
+		 WebElement id=driver.findElement(By.id("identifierId"));
+		 id.sendKeys("thadi.gowthami@gmail.com");
+		 WebElement pass =driver.findElement(By.linkText("Next")); 
+		 pass.click();
+		 
+		
+		
+		
+		
+		
+	}
+
+}

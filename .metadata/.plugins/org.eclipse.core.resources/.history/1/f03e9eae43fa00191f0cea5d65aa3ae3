@@ -1,0 +1,30 @@
+package com.fileupload;
+
+import java.io.IOException;
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class monster {
+
+	public static void main(String[] args) throws InterruptedException, IOException {
+
+		
+		System.setProperty("webdriver.chrome.driver","C:\\Users\\HP\\eclipse-workspace\\gowthami\\seleniumtesting\\driver files\\chromedriver.exe");
+
+		WebDriver driver =new ChromeDriver();
+		driver.get("https://opensource-demo.orangehrmlive.com/index.php/pim/addEmployee");
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(5000,TimeUnit.SECONDS);
+		driver.findElement(By.id("txtUsername")).sendKeys("Admin");
+		driver.findElement(By.name("txtPassword")).sendKeys("admin123");
+		driver.findElement(By.id("signInbtn")).click();
+		
+		
+		driver.findElement(By.id("photofile")).click();
+		Runtime.getRuntime().exec("C:\\Users\\HP\\Desktop\\auto it\\resume.exe"+" "+"C:\\Users\\HP\\Downloads");
+	}
+
+}
